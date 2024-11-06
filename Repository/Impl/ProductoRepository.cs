@@ -19,9 +19,10 @@ public class ProductoRepository : IProductoRepository
         return products;
     }
 
-    public Task<Producto> GetProductById(int id)
+    public async Task<Producto> GetProductById(int id)
     {
-        throw new NotImplementedException();
+        var product = await _db.Productos.FindAsync(id);
+        return product;
     }
 
     public Task<Producto> AddProduct(Producto product)
